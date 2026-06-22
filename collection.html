@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collection - Advanced Selectors</title>
+    <style>
+        /* --- Accessibility & Navigation (Consistent) --- */
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 10px;
+            background: #2c3e50;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            z-index: 100;
+        }
+        .skip-link:focus {
+            top: 10px;
+        }
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #2c3e50;
+            padding: 15px 20px;
+            font-family: Arial, sans-serif;
+        }
+        nav a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        nav a:hover {
+            background-color: #27ae60;
+            border-radius: 4px;
+            transform: scale(1.1);
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f8f9fa;
+        }
+        main {
+            padding: 40px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        h1 { text-align: center; }
+
+        /* --- Flexbox Layout for Images --- */
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        /* Base styling for the collection elements */
+        .flex-container img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        /* --- Advanced Nth-Child Selectors & Box Model Styling --- */
+        /* Odd images have sharp/slight round corners and a thick blue border */
+        .flex-container img:nth-child(odd) {
+            border: 6px solid #2980b9;
+            padding: 5px;
+            border-radius: 8px;
+        }
+
+        /* Even images have fully circular/oval shapes and a distinct green border */
+        .flex-container img:nth-child(even) {
+            border: 6px solid #27ae60;
+            padding: 12px;
+            border-radius: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to Main Content</a>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="gallery.html">Gallery (Grid)</a>
+        <a href="collection.html">Collection (Nth-Child)</a>
+    </nav>
+
+    <main id="main-content">
+        <h1>Nth-Child Design Variations</h1>
+        <p style="text-align: center;">This layout uses Flexbox. The Box Models (border, padding, border-radius) vary automatically depending on whether the item is odd or even.</p>
+        
+        <div class="flex-container">
+            <img src="https://picsum.photos/id/22/300/300" alt="A walking path through a golden fields">
+            <img src="https://picsum.photos/id/23/300/300" alt="An overhead view of a modern highway layout">
+            <img src="https://picsum.photos/id/24/300/300" alt="A close up view of gray rocky crags">
+            <img src="https://picsum.photos/id/28/300/300" alt="A forest with sunlight filtering through tree leaves">
+        </div>
+    </main>
+
+</body>
+</html>
